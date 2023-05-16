@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  teamspeak:
+    image: teamspeak:latest
+    ports:
+      - "9987:9987/udp"  # Voice port
+      - "10011:10011"    # ServerQuery port
+      - "30033:30033"    # File transfer port
+    volumes:
+      - ./data:/var/ts3server
+    environment:
+      - TS3SERVER_LICENSE=accept
+    restart: always
